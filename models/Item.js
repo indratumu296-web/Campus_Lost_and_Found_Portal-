@@ -1,0 +1,3 @@
+const mongoose=require('mongoose');
+const schema=new mongoose.Schema({name:{type:String,required:true,trim:true,maxlength:120},category:{type:String,required:true,enum:['Electronics','Accessories','Documents','Clothing','Books','Keys','Other']},description:{type:String,required:true,trim:true,maxlength:2000},location:{type:String,required:true,trim:true,maxlength:120},date:{type:Date,required:true},type:{type:String,required:true,enum:['lost','found']},image:{type:String,default:''},status:{type:String,enum:['open','claimed','resolved'],default:'open'},owner:{type:mongoose.Schema.Types.ObjectId,ref:'User',required:true}},{timestamps:true});
+schema.index({name:'text',description:'text',location:'text'});module.exports=mongoose.model('Item',schema);

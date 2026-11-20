@@ -1,0 +1,446 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#102b2b">
+
+    <title>Sai University — Campus Lost & Found</title>
+
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="topbar">
+
+        <a href="#home" class="logo">
+    <img src="/saiUlogo.jpg" alt="Sai University Logo" class="logo-image">
+</a>
+
+        <nav>
+            <a href="#explore">Explore items</a>
+            <a href="#how">How it works</a>
+            <a href="#dashboard" id="dashboardLink" class="hidden">
+                My dashboard
+            </a>
+        </nav>
+
+        <div class="nav-actions">
+            <span id="userGreeting"></span>
+
+            <button class="btn ghost" id="authBtn">
+                Log in
+            </button>
+
+            <button class="btn primary" id="reportBtn">
+                + Report an item
+            </button>
+        </div>
+
+    </header>
+
+
+    <!-- MAIN CONTENT -->
+    <main>
+
+        <!-- HERO SECTION -->
+        <section id="home" class="hero">
+
+            <div class="hero-copy">
+
+                <div class="eyebrow">
+                    <span class="pulse"></span>
+                    SAI UNIVERSITY · CAMPUS COMMUNITY
+                </div>
+
+                <h1>
+                    Lost something?
+                    <br>
+                    <em>Let's find it.</em>
+                </h1>
+
+                <p>
+                    A little help goes a long way. Reconnect with your belongings
+                    and help others find what matters to them.
+                </p>
+
+                <div class="hero-actions">
+
+                    <a class="btn primary big" href="#explore">
+                        Browse found items <span>↗</span>
+                    </a>
+
+                    <button class="btn outline big" id="heroReport">
+                        I lost something
+                    </button>
+
+                </div>
+
+                <div class="hero-stats">
+
+                    <div>
+                        <strong>One campus</strong>
+                        <small>Connected community</small>
+                    </div>
+
+                    <div>
+                        <strong>Real people</strong>
+                        <small>Helping each other</small>
+                    </div>
+
+                    <div>
+                        <strong>Every day</strong>
+                        <small>A chance to reunite</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- HERO ART -->
+            <div class="hero-art">
+
+                <div class="art-circle"></div>
+
+                <div class="float-note note-one">
+                    ✦
+                    <span>
+                        Good things
+                        <br>
+                        find their way back.
+                    </span>
+                </div>
+
+                <div class="object-card">
+
+                    <div class="object-icon">🎒</div>
+
+                    <div class="object-bottom">
+                        <span>FOUND NEAR THE LIBRARY</span>
+                        <strong>Someone's missing this.</strong>
+                    </div>
+
+                </div>
+
+                <div class="float-note note-two">
+                    ♡
+                    <span>Made for our campus</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- EXPLORE ITEMS SECTION -->
+        <section class="section explore" id="explore">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="kicker">THE COMMUNITY BOARD</span>
+
+                    <h2>
+                        Every item has <em>a story.</em>
+                    </h2>
+
+                    <p>
+                        Browse recent reports, search for a match,
+                        or lend a helping hand.
+                    </p>
+                </div>
+
+                <button class="btn dark" id="sectionReport">
+                    + Add a listing
+                </button>
+
+            </div>
+
+
+            <!-- FILTER PANEL -->
+            <div class="filter-panel">
+
+                <div class="searchbox">
+                    <span>⌕</span>
+
+                    <input
+                        id="search"
+                        placeholder="Search for a wallet, phone, keys..."
+                        aria-label="Search listings"
+                    >
+                </div>
+
+
+                <select id="typeFilter" aria-label="Listing type">
+
+                    <option value="">All reports</option>
+                    <option value="lost">Lost items</option>
+                    <option value="found">Found items</option>
+
+                </select>
+
+
+                <select id="categoryFilter" aria-label="Category">
+
+                    <option value="">All categories</option>
+                    <option>Electronics</option>
+                    <option>Accessories</option>
+                    <option>Documents</option>
+                    <option>Clothing</option>
+                    <option>Books</option>
+                    <option>Keys</option>
+                    <option>Other</option>
+
+                </select>
+
+
+                <input
+                    id="locationFilter"
+                    placeholder="Campus location"
+                    aria-label="Location filter"
+                >
+
+
+                <select id="sortFilter" aria-label="Sort">
+
+                    <option value="new">Newest first</option>
+                    <option value="old">Oldest first</option>
+
+                </select>
+
+            </div>
+
+
+            <!-- LISTING DETAILS -->
+            <div class="list-meta">
+
+                <span id="resultCount">
+                    Loading items...
+                </span>
+
+                <span>
+                    Look out for one another ✳
+                </span>
+
+            </div>
+
+
+            <!-- ITEMS GRID -->
+            <div class="cards" id="itemsGrid"></div>
+
+            <!-- PAGINATION -->
+            <div class="pager" id="pager"></div>
+
+        </section>
+
+
+        <!-- HOW IT WORKS SECTION -->
+        <section class="how section" id="how">
+
+            <span class="kicker">SIMPLE BY DESIGN</span>
+
+            <h2>
+                Small steps. <em>Big reunions.</em>
+            </h2>
+
+
+            <div class="steps">
+
+                <article>
+
+                    <span class="step-number">01</span>
+
+                    <div class="step-icon">⌕</div>
+
+                    <h3>Look around</h3>
+
+                    <p>
+                        Explore what others have lost or found across campus.
+                    </p>
+
+                </article>
+
+
+                <article>
+
+                    <span class="step-number">02</span>
+
+                    <div class="step-icon">✎</div>
+
+                    <h3>Share the details</h3>
+
+                    <p>
+                        Report your item with a location,
+                        description and optional photo.
+                    </p>
+
+                </article>
+
+
+                <article>
+
+                    <span class="step-number">03</span>
+
+                    <div class="step-icon">♡</div>
+
+                    <h3>Make a connection</h3>
+
+                    <p>
+                        Submit a claim and let the listing owner verify it.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- BANNER SECTION -->
+        <section class="banner">
+
+            <div>
+
+                <span class="kicker">BE SOMEONE'S GOOD NEWS</span>
+
+                <h2>
+                    Found something?
+                    <br>
+                    <em>Be the reason it gets home.</em>
+                </h2>
+
+            </div>
+
+            <button class="btn light big" id="bannerReport">
+                Report a found item ↗
+            </button>
+
+        </section>
+
+
+        <!-- DASHBOARD SECTION -->
+        <section id="dashboard" class="section dashboard hidden">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="kicker">YOUR SPACE</span>
+
+                    <h2>
+                        My <em>dashboard.</em>
+                    </h2>
+
+                </div>
+
+                <button class="btn dark" id="dashboardReport">
+                    + New report
+                </button>
+
+            </div>
+
+
+            <!-- ADMIN STATISTICS -->
+            <div id="adminStats" class="stats-grid hidden"></div>
+
+
+            <!-- DASHBOARD COLUMNS -->
+            <div class="dash-columns">
+
+                <div>
+
+                    <h3>My listings</h3>
+
+                    <div id="myItems" class="dash-list"></div>
+
+                </div>
+
+
+                <div>
+
+                    <h3>My claims</h3>
+
+                    <div id="myClaims" class="dash-list"></div>
+
+
+                    <h3>Claims on my listings</h3>
+
+                    <div id="receivedClaims" class="dash-list"></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <a href="#home" class="logo">
+            ✳ foundry.
+        </a>
+
+        <span>
+            Reuniting our campus, one item at a time.
+        </span>
+
+        <span>
+            Built for Sai University · 2026
+        </span>
+
+    </footer>
+
+
+    <!-- TOAST MESSAGE -->
+    <div id="toast" role="status" aria-live="polite"></div>
+
+
+    <!-- MODAL -->
+    <dialog id="modal">
+
+        <div class="modal-head">
+
+            <div>
+
+                <span class="kicker" id="modalKicker">
+                    CAMPUS COMMUNITY
+                </span>
+
+                <h2 id="modalTitle">
+                    Welcome back
+                </h2>
+
+            </div>
+
+
+            <button
+                class="close"
+                id="closeModal"
+                aria-label="Close"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <!-- DYNAMIC MODAL CONTENT -->
+        <div id="modalBody"></div>
+
+    </dialog>
+
+
+    <!-- JAVASCRIPT -->
+    <script type="module" src="/app.js"></script>
+
+</body>
+
+</html>
