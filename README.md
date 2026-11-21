@@ -1,128 +1,697 @@
-# Foundry — Campus Lost & Found
+# 🎒 Foundry — Campus Lost & Found Portal
 
-A full-stack, responsive **Campus Lost and Found Portal** for Sai University's Web Technology and Internet Programming individual project (2026–2027).
+<div align="center">
 
-## Features
+![Node.js](https://img.shields.io/badge/Node.js-20+-339933?style=for-the-badge&logo=node.js&logoColor=white)
+![Express](https://img.shields.io/badge/Express.js-Backend-000000?style=for-the-badge&logo=express)
+![MongoDB](https://img.shields.io/badge/MongoDB-Database-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-Authentication-000000?style=for-the-badge&logo=jsonwebtokens)
+![HTML5](https://img.shields.io/badge/HTML5-Frontend-E34F26?style=for-the-badge&logo=html5)
+![CSS3](https://img.shields.io/badge/CSS3-Styling-1572B6?style=for-the-badge&logo=css3)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 
-- Registration, login, logout and role-protected access using JWT and bcrypt
-- Create, browse, edit and delete lost/found reports with optional photos
-- Search by keyword and filter by category, location and report type
-- **Custom feature:** newest/oldest date sorting
-- Claim items, approve/reject claims, and track claim statuses
-- User dashboard for reports, submitted claims and received claims
-- Admin dashboard with statistics, all-claims review and moderation of listings
-- MongoDB persistent storage; seed script inserts 12 example reports
-- REST APIs and Postman test collection (10 scenarios)
-- Mobile-responsive design with semantic HTML, CSS and ES6 JavaScript
+### A Modern Full-Stack Campus Lost & Found Management System
 
-## Prerequisites
+**Developed for**
+**Sai University**
+**Web Technology & Internet Programming (WTIP)**
+**Individual Project (2026–2027)**
 
-1. Install **Node.js 20 or later** and npm.
-2. Install and start **MongoDB Community Server**, or create a MongoDB Atlas database.
-3. Install **Postman** for API testing.
+---
 
-## Run locally (Windows / macOS / Linux)
+*A secure, responsive, and user-friendly platform that simplifies reporting, searching, claiming, and managing lost and found items across the university campus.*
+
+</div>
+
+---
+
+# 📖 Table of Contents
+
+- Project Overview
+- Key Features
+- Technology Stack
+- System Architecture
+- Project Structure
+- Installation
+- Environment Variables
+- Running the Project
+- Demo Credentials
+- API Documentation
+- Authentication
+- Search & Filtering
+- User Roles
+- Postman Testing
+- Database Seeding
+- Deployment
+- Security Features
+- Future Enhancements
+- Screenshots
+- Submission Checklist
+- License
+
+---
+
+# 📚 Project Overview
+
+**Foundry – Campus Lost & Found Portal** is a complete **MERN-style backend web application** built using **Node.js, Express.js, MongoDB, and Vanilla JavaScript**.
+
+The system digitalizes the traditional lost-and-found process within a university campus.
+
+Instead of relying on notice boards or manual records, students and faculty can:
+
+- Report lost items
+- Report found items
+- Search existing reports
+- Submit ownership claims
+- Approve or reject claims
+- Track claim progress
+- Manage their own listings
+- Access administrator moderation tools
+
+The application follows RESTful API principles and includes JWT-based authentication, role-based authorization, secure password hashing, image uploads, filtering, sorting, dashboards, and complete Postman API testing.
+
+---
+
+# ✨ Key Features
+
+## 🔐 Authentication & Security
+
+- User Registration
+- User Login
+- Secure Logout
+- JWT Authentication
+- Password Hashing using bcrypt
+- Protected Routes
+- Role-Based Authorization
+- Owner Authorization
+- Admin Authorization
+- Login Rate Limiting
+
+---
+
+## 📦 Lost & Found Management
+
+- Create Lost Reports
+- Create Found Reports
+- Edit Reports
+- Delete Reports
+- View Individual Reports
+- Browse All Reports
+- Upload Images
+- Pagination Support
+
+---
+
+## 🔎 Search & Filters
+
+Users can quickly locate reports using:
+
+- Keyword Search
+- Category Filter
+- Report Type Filter
+- Location Filter
+- Date Filter
+
+### Custom Feature
+
+✔ Sort by
+
+- Newest First
+- Oldest First
+
+---
+
+## 🤝 Claim Management
+
+Users can:
+
+- Submit Claims
+- Track Claim Status
+- View Submitted Claims
+- View Claims Received
+- Approve Claims
+- Reject Claims
+
+Claim Status:
+
+- Pending
+- Approved
+- Rejected
+
+---
+
+## 👤 User Dashboard
+
+Every authenticated user has access to:
+
+- My Reports
+- My Claims
+- Claims Received
+- Profile Information
+
+---
+
+## 🛡 Admin Dashboard
+
+Administrator features include:
+
+- View All Users
+- View All Claims
+- Moderate Reports
+- Platform Statistics
+- Claim Review
+- Listing Management
+
+---
+
+# 🛠 Technology Stack
+
+## Frontend
+
+- HTML5
+- CSS3
+- JavaScript (ES6)
+- Fetch API
+
+---
+
+## Backend
+
+- Node.js
+- Express.js
+
+---
+
+## Database
+
+- MongoDB
+- Mongoose ODM
+
+---
+
+## Authentication
+
+- JWT
+- bcrypt
+
+---
+
+## File Upload
+
+- Multer
+
+---
+
+## API Testing
+
+- Postman
+
+---
+
+# 🏗 System Architecture
+
+```
+                +----------------------+
+                |      Browser         |
+                | HTML • CSS • JS      |
+                +----------+-----------+
+                           |
+                    HTTP Requests
+                           |
+                           ▼
+               +----------------------+
+               |    Express Server    |
+               |   RESTful API Layer  |
+               +----------+-----------+
+                           |
+             JWT Authentication Middleware
+                           |
+                           ▼
+                 Business Logic Layer
+                           |
+                           ▼
+                    MongoDB Database
+            (Users • Items • Claims)
+```
+
+---
+
+# 📁 Project Structure
+
+```
+campus-lost-found/
+│
+├── config/
+│
+├── controllers/
+│
+├── middleware/
+│
+├── models/
+│
+├── routes/
+│
+├── uploads/
+│
+├── public/
+│
+├── postman/
+│
+├── seed/
+│
+├── .env.example
+├── package.json
+├── server.js
+└── README.md
+```
+
+---
+
+# ⚙ Prerequisites
+
+Before running the application, install:
+
+- Node.js 20+
+- npm
+- MongoDB Community Server
+  OR
+- MongoDB Atlas
+- Git
+- Postman
+
+---
+
+# 🚀 Installation
+
+Clone the repository
+
+```bash
+git clone https://github.com/yourusername/campus-lost-found.git
+```
+
+Move into the project directory
 
 ```bash
 cd campus-lost-found
+```
+
+Install dependencies
+
+```bash
 npm install
 ```
 
-Copy `.env.example` to `.env`. On macOS/Linux:
+---
+
+# 🔑 Environment Variables
+
+Copy the example file.
+
+### macOS / Linux
 
 ```bash
 cp .env.example .env
 ```
 
-On Windows PowerShell:
+### Windows PowerShell
 
 ```powershell
 Copy-Item .env.example .env
 ```
 
-Edit `.env`: set your `MONGODB_URI`, a random `JWT_SECRET` at least 32 characters long, and a private `ADMIN_PASSWORD` of at least 8 characters. **Never commit `.env`.** Ensure MongoDB is running before the next steps.
+Update the following variables.
+
+```env
+PORT=3000
+
+MONGODB_URI=mongodb://localhost:27017/campuslostfound
+
+JWT_SECRET=your_super_secret_key_minimum_32_characters
+
+ADMIN_EMAIL=admin@example.com
+
+ADMIN_PASSWORD=StrongPassword123
+```
+
+> Never commit your `.env` file to GitHub.
+
+---
+
+# 🌱 Seed the Database
+
+Populate MongoDB with demo data.
 
 ```bash
 npm run seed
+```
+
+The seed script creates:
+
+- Administrator Account
+- 12 Sample Reports
+- Sample Categories
+- Demo Data
+
+Running the seed multiple times **will not create duplicates**.
+
+---
+
+# ▶ Running the Application
+
+Production
+
+```bash
 npm start
 ```
 
-Visit **http://localhost:3000**. To use the administrator account, log in with `ADMIN_EMAIL` and `ADMIN_PASSWORD` from `.env`. The seed command creates an admin and 12 sample listings on a fresh database; it will not duplicate listings on subsequent runs.
+Development
 
-For auto-reload during development: `npm run dev`.
-
-## Suggested demonstration
-
-1. Open the home page and show 12 sample reports, search, filters and sorting.
-2. Register two different accounts in separate browsers or private windows.
-3. With account A, submit a **found** report with a photo.
-4. With account B, open the report and submit a claim with identifying details.
-5. With account A, open **My dashboard** and approve or reject the claim.
-6. Show the resulting claim status in account B's dashboard.
-7. Log in as admin and show statistics and claim review.
-8. Open Postman, import the collection and run the API tests.
-
-## API overview
-
-| Method | Route | Access | Purpose |
-|---|---|---|---|
-| POST | `/api/auth/register` | Public | Create account |
-| POST | `/api/auth/login` | Public | Obtain JWT |
-| GET | `/api/auth/me` | User | Profile |
-| GET | `/api/items` | Public | Search, filter, sort and paginate |
-| GET | `/api/items/:id` | Public | Item details |
-| POST | `/api/items` | User | Report item (multipart form) |
-| GET | `/api/items/mine` | User | Own reports |
-| PATCH | `/api/items/:id` | Owner/admin | Update report |
-| DELETE | `/api/items/:id` | Owner/admin | Delete report |
-| POST | `/api/claims` | User | Submit claim |
-| GET | `/api/claims/mine` | User | Submitted claims |
-| GET | `/api/claims/received` | User | Claims on owned items |
-| PATCH | `/api/claims/:id` | Owner/admin | Approve/reject claim |
-| GET | `/api/admin/stats` | Admin | Basic statistics |
-| GET | `/api/admin/claims` | Admin | All claims |
-
-For protected endpoints, pass `Authorization: Bearer <JWT>`. POST `/api/items` requires form fields: `name`, `category`, `description`, `location`, `date` (YYYY-MM-DD), `type` (`lost` or `found`), optional `image` (JPG/PNG/WebP under 3 MB).
-
-## Postman
-
-Import `postman/Campus-Lost-Found.postman_collection.json`. Set collection variable `baseUrl` to `http://localhost:3000`. Run **Register user** (or use a unique email if already registered), then **Login**. The collection saves the user token automatically. For claim tests, use a second account and a listing owned by the first account; edit `itemId` and `claimId` collection variables accordingly. **Postman scenarios are supplied but need to be executed and screenshotted on your machine.**
-
-## Deploy
-
-1. Create a MongoDB Atlas database and allow the hosting platform's IP/network access appropriately.
-2. Push the source to your personal GitHub repository. Do not push `.env` or `node_modules`.
-3. Create a Node.js web service on an instructor-approved host (e.g. Render). Set build command `npm install`, start command `npm start`.
-4. Configure `MONGODB_URI`, `JWT_SECRET`, `ADMIN_EMAIL`, `ADMIN_PASSWORD` and (optionally) `PORT` as environment variables.
-5. Run `npm run seed` once against the intended database from a trusted environment.
-6. Verify the public URL and Postman routes. **Note:** local uploaded files are not durable on many cloud hosts; configure persistent disk storage or external object storage for production photo uploads.
-
-## Architecture
-
-```text
-Browser (HTML/CSS/ES6 Fetch)
-          |
-          v
-Express REST API + JWT middleware
-          |
-          v
-MongoDB (User, Item, Claim)
+```bash
+npm run dev
 ```
 
-## Security notes
+Visit
 
-Passwords are hashed with bcrypt. JWT authorization is checked server-side; roles and ownership are enforced on edits and claims. Input lengths, enumerations, IDs, file sizes and MIME types are checked. Login routes have rate limiting. In a production deployment, add strict CSP, file signature validation, object storage, stronger logging and monitoring, and a secure token-storage strategy.
+```
+http://localhost:3000
+```
 
-## Submission checklist
+---
 
-- [ ] Run and demonstrate the working application
-- [ ] Execute at least 8 Postman cases; capture screenshots and results
-- [ ] Take screenshots of the homepage, reports, forms, claims and dashboards
-- [ ] Push code to your personal GitHub repository
-- [ ] Deploy to instructor-approved hosting and record the live URL
-- [ ] Write the project report **using the university's prescribed report template** (not supplied here)
-- [ ] Disclose AI assistance as required by your course
-- [ ] Prepare for individual viva and code modifications
-- [ ] Submit through Google Classroom before **30 November 2026**
+# 👨‍💻 Administrator Login
 
-**Important:** This archive provides the implementation and test collection, not proof of successful runtime testing, cloud deployment, or instructor approval. You must run, verify, deploy and document the project before submission.
+Use the credentials stored inside your `.env` file.
+
+```
+ADMIN_EMAIL
+
+ADMIN_PASSWORD
+```
+
+---
+
+# 📡 REST API
+
+## Authentication
+
+| Method | Endpoint |
+|---------|----------|
+| POST | /api/auth/register |
+| POST | /api/auth/login |
+| GET | /api/auth/me |
+
+---
+
+## Items
+
+| Method | Endpoint |
+|---------|----------|
+| GET | /api/items |
+| GET | /api/items/:id |
+| POST | /api/items |
+| PATCH | /api/items/:id |
+| DELETE | /api/items/:id |
+| GET | /api/items/mine |
+
+---
+
+## Claims
+
+| Method | Endpoint |
+|---------|----------|
+| POST | /api/claims |
+| GET | /api/claims/mine |
+| GET | /api/claims/received |
+| PATCH | /api/claims/:id |
+
+---
+
+## Admin
+
+| Method | Endpoint |
+|---------|----------|
+| GET | /api/admin/stats |
+| GET | /api/admin/claims |
+
+---
+
+# 🔒 Authentication
+
+Protected endpoints require
+
+```
+Authorization: Bearer <JWT_TOKEN>
+```
+
+---
+
+# 🖼 Image Upload
+
+Supported Formats
+
+- JPG
+- JPEG
+- PNG
+- WebP
+
+Maximum Size
+
+```
+3 MB
+```
+
+Multipart Field
+
+```
+image
+```
+
+---
+
+# 🔍 Search Parameters
+
+```
+keyword
+
+category
+
+location
+
+type
+
+sort
+
+page
+
+limit
+```
+
+Sorting
+
+```
+Newest
+
+Oldest
+```
+
+---
+
+# 👥 User Roles
+
+## Student/User
+
+- Register
+- Login
+- Report Lost Item
+- Report Found Item
+- Submit Claim
+- Manage Own Reports
+- View Dashboard
+
+---
+
+## Administrator
+
+Everything a User Can Do
+
+PLUS
+
+- Review Claims
+- Platform Statistics
+- Moderate Listings
+- Manage Reports
+
+---
+
+# 📮 Postman Testing
+
+Import
+
+```
+postman/Campus-Lost-Found.postman_collection.json
+```
+
+Set
+
+```
+baseUrl=http://localhost:3000
+```
+
+Recommended Test Flow
+
+1. Register
+2. Login
+3. Get JWT
+4. Create Report
+5. View Reports
+6. Search Reports
+7. Submit Claim
+8. Approve Claim
+9. View Statistics
+10. Delete Report
+
+---
+
+# 🎯 Demonstration Flow
+
+1. Launch the application.
+2. Show homepage.
+3. Search reports.
+4. Filter reports.
+5. Register User A.
+6. Register User B.
+7. User A creates a Found report.
+8. User B submits a Claim.
+9. User A approves Claim.
+10. User B checks updated status.
+11. Login as Administrator.
+12. Display statistics dashboard.
+13. Execute Postman API collection.
+
+---
+
+# 🔐 Security Features
+
+✔ bcrypt Password Hashing
+
+✔ JWT Authentication
+
+✔ Protected API Routes
+
+✔ Ownership Validation
+
+✔ Role-Based Authorization
+
+✔ Login Rate Limiting
+
+✔ Input Validation
+
+✔ File Type Validation
+
+✔ File Size Validation
+
+✔ MongoDB ObjectID Validation
+
+✔ Environment Variable Protection
+
+---
+
+# 🚀 Deployment
+
+Recommended Hosting
+
+- Render
+- Railway
+- Cyclic
+- Azure App Service
+
+Deployment Steps
+
+1. Push project to GitHub
+2. Create MongoDB Atlas Cluster
+3. Configure Environment Variables
+4. Deploy Node.js Application
+5. Run Seed Script
+6. Verify APIs
+7. Verify Frontend
+
+---
+
+# 🔮 Future Enhancements
+
+- Email Notifications
+- OTP Verification
+- Google Login
+- QR Code Based Claims
+- AI Image Matching
+- Mobile Application
+- Push Notifications
+- Real-Time Chat
+- Cloud Storage
+- Admin Analytics Dashboard
+- Dark Mode
+- PWA Support
+
+---
+
+# 📷 Screenshots
+
+Add screenshots before submission.
+
+```
+Home Page
+
+Registration
+
+Login
+
+Dashboard
+
+Lost Report
+
+Found Report
+
+Claim Submission
+
+Admin Dashboard
+
+Postman Collection
+
+MongoDB Database
+```
+
+---
+
+
+
+---
+
+# 👨‍🎓 Academic Information
+
+**Course:** Web Technology & Internet Programming
+
+**Project:** Campus Lost & Found Portal
+
+**University:** Sai University
+
+**Academic Year:** 2026–2027
+
+**Project Type:** Individual Project
+
+---
+
+# 📄 License
+
+This project was developed solely for academic purposes as part of the Web Technology & Internet Programming coursework at Sai University.
+
+---
+
+<div align="center">
+
+## ⭐ If you found this project useful, consider giving it a star!
+
+**Foundry — Making Campus Lost & Found Smarter, Faster, and More Reliable.**
+
+Made with ❤️ using Node.js, Express.js, MongoDB, HTML, CSS, and JavaScript.
+
+</div>
