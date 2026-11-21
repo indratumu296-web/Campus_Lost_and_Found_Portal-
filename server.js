@@ -26,7 +26,7 @@ if (!process.env.MONGODB_URI) {
   process.exit(1);
 }
 
-// API routes
+// API Routes
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/items", require("./routes/items"));
 app.use("/api/claims", require("./routes/claims"));
@@ -36,7 +36,10 @@ app.use("/api/admin", require("./routes/admin"));
 app.get("/api/health", (req, res) => {
   res.status(200).json({
     success: true,
-    message: "Server is working"
+    message: "Server is working",
+    database: mongoose.connection.readyState === 1
+      ? "Connected"
+      : "Disconnected"
   });
 });
 
@@ -45,7 +48,7 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
-// 404 handler
+// 404 Handler
 app.use((req, res) => {
   res.status(404).json({
     success: false,
@@ -54,29 +57,32 @@ app.use((req, res) => {
   });
 });
 
-// Error handler
+// Error Handler
 app.use((err, req, res, next) => {
-  console.error(err);
+  console.error("Application error:", err.message);
   res.status(500).json({
     success: false,
     message: "Internal server error"
   });
 });
 
-// Start server
+// Start Server
 async function startServer() {
   try {
-    await mongoose.connect(process.env.MONGODB_URI);
+    console.log("Connecting to MongoDB...");
+
+    await mongoose.connect(process.env.MONGODB_URI, {
+      serverSelectionTimeoutMS: 10000
+    });
 
     console.log("MongoDB connected successfully");
 
-    app.listen(PORT, () => {
-      console.log(
-        `Server running at http://localhost:${PORT}`
-      );
+    app.listen(PORT, "0.0.0.0", () => {
+      console.log(`Server running on port ${PORT}`);
     });
+
   } catch (error) {
-    console.error("Server error:", error.message);
+    console.error("Database connection failed:", error.message);
     process.exit(1);
   }
 }
