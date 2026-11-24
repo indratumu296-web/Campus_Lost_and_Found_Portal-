@@ -693,7 +693,7 @@ This project was developed solely for academic purposes as part of the Web Techn
 
 ## ⭐ If you found this project useful, consider giving it a star!
 
-**Foundry — Making Campus Lost & Found Smarter, Faster, and More Reliable.**
+# Making Campus Lost & Found Smarter, Faster, and More Reliable.
 
 Made with ❤️ using Node.js, Express.js, MongoDB, HTML, CSS, and JavaScript.
 
