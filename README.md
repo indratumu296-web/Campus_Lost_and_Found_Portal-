@@ -1,7 +1,7 @@
  # Linkedin www.linkedin.com/in/tumu-indra-reddy
 
  
-# 🎒 Foundry — Campus Lost & Found Portal
+# 🎒 Campus Lost & Found Portal
 
 <div align="center">
 
